@@ -9,6 +9,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Treasure"
     },
+    "image3": {
+        "data": "hwQQACAAAAAAAAAAAADw//8AAAAAAAAAAAAAAP//z73LDwAAAPD/AAAAz8wR8du7zP0PAAC/+wAA8BzDEcG7+9zd/Q/wuw8AAM/MExwRu8vMzNv7v8sPAPAbETPMEbu7zMzMzMz8AAC/uxERERG7u8vMzMy7/AAAv7+7Ef+xv7u7zMz8v/sAAP+7u7v/u7+/u8zM/N+7DwAAv7u7u/v7u7vM/A/fuw8AAPC/u7u7v7vL/w8A8L/7AAAA8P//zMzM/wAAAADw/wAAAAAAAM+8yw8AAAAAAAAAAAAAAADM3bsPAAAAAAAAAAAAAAAAwNy9/AAAAAAAAAAAAAAAAADA/P8AAAAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
