@@ -6,13 +6,25 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Treasure, function (sprite, othe
     Treasure.startEffect(effects.disintegrate)
     Treasure_Count += 1
     game.splash("You beat the Level!", "Press A for next level!")
+    sprites.destroyAllSpritesOfKind(SpriteKind.Treasure)
+    NextLevel(Treasure_Count)
 })
 function Admit_Sharky () {
     Sharky = sprites.create(assets.image`myImage`, SpriteKind.Enemy)
     Sharky.setScale(0.75, ScaleAnchor.Middle)
-    Sharky.setPosition(230, 200)
+    tiles.placeOnRandomTile(Sharky, assets.tile`SharkyTile`)
     Sharky.setBounceOnWall(true)
-    Sharky.vy = 75
+    Sharky.vy = 10
+    Sharky.setStayInScreen(true)
+}
+function NextLevel (num: number) {
+    if (num == 1) {
+        tiles.setCurrentTilemap(tilemap`level 2`)
+        Ducky = sprites.create(assets.image`Treasure 0`, SpriteKind.Treasure)
+        tiles.placeOnRandomTile(Ducky, assets.tile`Ham Tile`)
+        Sharky.follow(Hero)
+        tiles.placeOnRandomTile(Sharky, assets.tile`SharkyTile`)
+    }
 }
 info.onLifeZero(function () {
     game.setGameOverMessage(false, "YOU LOST! DIED IN THE DUNGEON")
@@ -27,7 +39,7 @@ function Initialize () {
     Hero.setPosition(42, 27)
     Treasure = sprites.create(assets.image`Treasure`, SpriteKind.Treasure)
     Treasure.setScale(0.5, ScaleAnchor.Middle)
-    Treasure.setPosition(131, 47)
+    tiles.placeOnRandomTile(Treasure, assets.tile`Ham Tile`)
     Treasure_Count = 0
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -35,6 +47,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     Hero.setPosition(42, 27)
 })
 let Hero: Sprite = null
+let Ducky: Sprite = null
 let Sharky: Sprite = null
 let Treasure_Count = 0
 let Treasure: Sprite = null
